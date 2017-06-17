@@ -36,6 +36,9 @@ Plugin 'sjbach/lusty'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'powerline/powerline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -122,3 +125,8 @@ imap <left> <nop>
 imap <right> <nop>
 
 let mapleader = ","
+
+" Status line settings
+set laststatus=2
+set showtabline=2
+let g:airline#extensions#tabline#enabled = 1
