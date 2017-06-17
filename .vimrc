@@ -39,6 +39,8 @@ Plugin 'terryma/vim-multiple-cursors'
 "Plugin 'powerline/powerline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'Shougo/neocomplete'
+Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,16 +57,12 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Autowrite
+set autowrite
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
-
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " -- Display
 set title		"Update title of terminal window
@@ -115,6 +113,22 @@ set antialias
 " NERDTree auto open
 " autocmd vimenter * NERDTree
 
+" REMAPS
+""split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"" nerdtree toggle
+map <C-`> :NERDTreeToggle<CR>
+
+"" vim-go 
+map <C-n> :cnext<CR>
+map <C-p> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+"" Disable arrow keys
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -125,6 +139,9 @@ imap <left> <nop>
 imap <right> <nop>
 
 let mapleader = ","
+
+" vim-go
+let g:go_list_type = "quickfix"
 
 " Status line settings
 set laststatus=2
