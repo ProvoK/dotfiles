@@ -142,6 +142,7 @@ let mapleader = ","
 
 " vim-go
 let g:go_list_type = "quickfix"
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
 
 " Status line settings
 set laststatus=2
