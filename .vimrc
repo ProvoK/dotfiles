@@ -42,6 +42,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -64,6 +66,10 @@ set autowrite
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
+
+" Fix typos
+cabbrev W write
+cabbrev Q quit
 
 " -- Display
 set title		"Update title of terminal window
@@ -149,3 +155,12 @@ autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 set laststatus=2
 set showtabline=2
 let g:airline#extensions#tabline#enabled = 1
+
+
+" vim-session
+let g:session_autoload = 'no'
+let g:session_autosave = 'no'
+nnoremap <leader>so :OpenSession
+nnoremap <leader>ss :SaveSession
+nnoremap <leader>sd :DeleteSession
+nnoremap <leader>sc :CloseSession
