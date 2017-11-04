@@ -107,10 +107,11 @@ filetype indent on
 filetype plugin on
 
 " Color theme (Solarized Dark)
-set background=dark
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
+"let g:solarized_visibility = "high"
+"let g:solarized_contrast = "normal"
 let g:solarized_termcolors = 256
+let g:solarized_termtrans = 1
+set background=dark
 colorscheme solarized
 
 " Font settings
@@ -128,7 +129,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "" nerdtree toggle
-map <C-`> :NERDTreeToggle<CR>
+nnoremap <C-T> :NERDTreeToggle<CR>
 
 "" vim-go 
 map <C-n> :cnext<CR>
@@ -164,3 +165,8 @@ nnoremap <leader>so :OpenSession
 nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession
 nnoremap <leader>sc :CloseSession
+
+" python-mode
+let g:pymode_options_max_line_length = 100
+let g:pymode_lint_options_pylint =
+        \ {'max-line-length': g:pymode_options_max_line_length}
