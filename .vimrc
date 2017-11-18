@@ -172,7 +172,7 @@ nnoremap <leader>sc :CloseSession
 let g:pymode_options_max_line_length = 100
 let g:pymode_lint_options_pylint =
         \ {'max-line-length': g:pymode_options_max_line_length}
-	
+let g:pymode_python = 'python3'
 
 " easymotion
 "" <Leader>f{char} to move to {char}
