@@ -45,6 +45,7 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'tpope/vim-fugitive'
+Plugin 'easymotion/vim-easymotion'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -171,3 +172,23 @@ nnoremap <leader>sc :CloseSession
 let g:pymode_options_max_line_length = 100
 let g:pymode_lint_options_pylint =
         \ {'max-line-length': g:pymode_options_max_line_length}
+	
+
+" easymotion
+"" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+"" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+"" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
