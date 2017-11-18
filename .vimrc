@@ -173,6 +173,7 @@ let g:pymode_options_max_line_length = 100
 let g:pymode_lint_options_pylint =
         \ {'max-line-length': g:pymode_options_max_line_length}
 let g:pymode_python = 'python3'
+let g:pymode_rope_lookup_project = 0  " This is a test...for slowness
 
 " easymotion
 "" <Leader>f{char} to move to {char}
@@ -180,7 +181,7 @@ map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 "" s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
 
 "" Move to line
 map <Leader>L <Plug>(easymotion-bd-jk)
