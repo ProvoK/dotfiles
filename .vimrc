@@ -45,6 +45,7 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'easymotion/vim-easymotion'
 
 " All of your Plugins must be added before the following line
@@ -174,6 +175,7 @@ let g:pymode_lint_options_pylint =
         \ {'max-line-length': g:pymode_options_max_line_length}
 let g:pymode_python = 'python3'
 let g:pymode_rope_lookup_project = 0  " This is a test...for slowness
+let g:pymode_rope = 0
 
 " easymotion
 "" <Leader>f{char} to move to {char}
