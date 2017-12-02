@@ -10,22 +10,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'Konfekt/FastFold'
 Plugin 'python-mode/python-mode'
@@ -47,6 +31,15 @@ Plugin 'xolox/vim-session'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'exu/pgsql.vim'
+" PYTHON PLUGINS
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'vim-syntastic/syntastic'
+" Plugin 'nvie/vim-flake8'
+" let python_highlight_all=1
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+" let g:syntastic_python_flake8_exec = 'python3'
+" let g:syntastic_python_flake8_args = ['-m', 'flake8']
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -174,10 +167,10 @@ let g:pymode_options_max_line_length = 100
 let g:pymode_lint_options_pylint =
         \ {'max-line-length': g:pymode_options_max_line_length}
 let g:pymode_python = 'python3'
-let g:pymode_rope_lookup_project = 0  " This is a test...for slowness
-let g:pymode_rope = 0
-let g:pymode_lint_checkers = ['pyflakes']
-let g:pymode_lint_on_fly = 1
+" let g:pymode_rope_lookup_project = 0  " This is a test...for slowness
+" let g:pymode_rope = 1
+" let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+" let g:pymode_lint_on_fly = 1
 
 " easymotion
 "" <Leader>f{char} to move to {char}
@@ -197,3 +190,5 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
+" SQL
+let g:sql_type_default = 'pgsql'
