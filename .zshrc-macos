@@ -1,6 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
 
-#ZSH_THEME="robbyrussell"
 ZSH_THEME="agnoster"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
 
@@ -8,39 +7,15 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-alias dj="python manage.py"
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/vittoriocamisa/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/vittoriocamisa/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/vittoriocamisa/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/vittoriocamisa/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-code () {
-if [[ $# = 0 ]]
-then
-    open -a "Visual Studio Code"
-else
-    [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
-    open -a "Visual Studio Code" --args "$F"
-fi
-}
-
 # Golang settings
 export GOPATH=$HOME/gocode
 PATH=$PATH:/Users/vittoriocamisa/gocode/bin/:/Users/vittoriocamisa/mongodb/bin
+
+# Python venvs 
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/Library/Frameworks/Python.framework/Versions/3.6/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
-ptwn() {
-ptw . -c "$@" --onpass "osascript -e 'display notification \"All tests passed\!\" with title \"pytest\"'" --onfail "osascript -e 'display notification \"Tests failed :(\" with title \"pytest\"'"
-}
-# DEFAULT_USER="vitto"
-# prompt_context() {
-#     `basename \"$VIRTUAL_ENV\"`
-# }
-alias sqitch='docker run -it --rm -v "$PWD:/src" --net="host" git.igenius.net:5005/crystal/back-end/sqitch:latest'
-alias sq='sqitch'
+
 prompt_context() {}
 prompt_dir () {
 	prompt_segment blue black '%1~'
