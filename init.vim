@@ -1,6 +1,27 @@
-" Plugin manager: vim-plug
+" ============================================================================
+" Vim-plug initialization
+" Avoid modify this section, unless you are very sure of what you are doing
 
-call plug#begin('~/.local/share/nvim/plugged')
+let vim_plug_just_installed = 0
+let vim_plug_path = expand('~/.config/nvim/autoload/plug.vim')
+if !filereadable(vim_plug_path)
+    echo "Installing Vim-plug..."
+    echo ""
+    silent !mkdir -p ~/.config/nvim/autoload
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    let vim_plug_just_installed = 1
+endif
+
+" manually load vim-plug the first time
+if vim_plug_just_installed
+    :execute 'source '.fnameescape(vim_plug_path)
+endif
+
+" Obscure hacks done, you can now modify the rest of the .vimrc as you wish :)
+
+" ============================================================================
+
+call plug#begin('~/.config/nvim/plugged')
 
 " Common
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -15,12 +36,16 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'bling/vim-airline'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'sheerun/vim-polyglot'
 
 
 " Language support
 Plug 'lifepillar/pgsql.vim'         " PostgreSQL syntax highlighting
 Plug 'fatih/vim-go'                 " Golang support
 Plug 'sebdah/vim-delve'             " Golang debugger
+Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins', 'for': 'python' } " Python autocomplete
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }  " Python goto etc
+
 
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
@@ -30,6 +55,9 @@ call plug#end()
 " -------------------------------------------------------------------------
 " ---- GENERAL
 " -------------------------------------------------------------------------
+
+set shell=/bin/bash
+
 let mapleader = ','
 
 
@@ -103,6 +131,21 @@ let g:go_auto_sameids = 1
 let g:go_auto_type_info = 1
 let g:go_fmt_command = "goimports"
 let g:go_addtags_transform = "snakecase"
+
+" Jedi-vim ------------------------------
+
+" Disable autocompletion (using deoplete instead)
+let g:jedi#completions_enabled = 0
+
+" All these mappings work only for python code:
+" Go to definition
+let g:jedi#goto_command = ',d'
+" Find ocurrences
+let g:jedi#usages_command = ',o'
+" Find assignments
+let g:jedi#goto_assignments_command = ',a'
+" Go to definition in new tab
+nmap ,D :tab split<CR>:call jedi#goto()<CR>
 
 " Error and warning signs.
 let g:ale_sign_error = '⤫'
