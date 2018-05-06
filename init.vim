@@ -58,6 +58,10 @@ call plug#end()
 
 set shell=/bin/bash
 
+let g:python3_host_prog = '/home/vitto/.pyenv/shims/python3'
+let g:python_host_prog = '/home/vitto/.pyenv/shims/python2.7'
+
+
 let mapleader = ','
 
 
