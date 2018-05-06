@@ -1,4 +1,4 @@
-" ============================================================================
+"  ============================================================================
 " Vim-plug initialization
 " Avoid modify this section, unless you are very sure of what you are doing
 
@@ -58,8 +58,8 @@ call plug#end()
 
 set shell=/bin/bash
 
-let g:python3_host_prog = '/home/vitto/.pyenv/shims/python3'
-let g:python_host_prog = '/home/vitto/.pyenv/shims/python2.7'
+let g:python3_host_prog = '/home/vitto/.pyenv/versions/3.6.5/envs/neovim3/bin/python'
+let g:python_host_prog = '/home/vitto/.pyenv/versions/2.7.15/envs/neovim2/bin/python'
 
 
 let mapleader = ','
