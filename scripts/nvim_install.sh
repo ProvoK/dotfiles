@@ -11,18 +11,19 @@ $HOME/.pyenv/bin/pyenv update
 
 $HOME/.pyenv/bin/pyenv install 2.7.15
 $HOME/.pyenv/bin/pyenv virtualenv 2.7.15 neovim2
-$HOME/.pyenv/bin/pyenv activate neovim2
+$HOME/.pyenv/bin/pyenv local neovim2
 pip2 install neovim
-$HOME/.pyenv/bin/pyenv deactivate
+$HOME/.pyenv/bin/pyenv local system
 
 
 
 $HOME/.pyenv/bin/pyenv install 3.6.5
 $HOME/.pyenv/bin/pyenv virtualenv 3.6.5 neovim3
-$HOME/.pyenv/bin/pyenv activate neovim3
+$HOME/.pyenv/bin/pyenv local neovim3
 pip3 install neovim
-$HOME/.pyenv/bin/pyenv deactivate
+$HOME/.pyenv/bin/pyenv local system
 
+rm -f ./.python-version  # This file is created by pyenv local command.
 
 # Installation
 add-apt-repository ppa:neovim-ppa/stable
