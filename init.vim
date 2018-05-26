@@ -58,8 +58,8 @@ call plug#end()
 
 set shell=/bin/bash
 
-let g:python3_host_prog = '/home/vitto/.pyenv/versions/3.6.5/envs/neovim3/bin/python'
-let g:python_host_prog = '/home/vitto/.pyenv/versions/2.7.15/envs/neovim2/bin/python'
+let g:python3_host_prog = $HOME . '/.pyenv/versions/3.6.5/envs/neovim3/bin/python'
+let g:python_host_prog = $HOME . '/.pyenv/versions/2.7.15/envs/neovim2/bin/python'
 
 
 let mapleader = ','
@@ -198,3 +198,8 @@ let g:ctrlp_map = ''
 "----------------------------------------------
 nnoremap <c-p> :FZF<cr>
 
+"----------------------------------------------
+" Plugin: 'w0rp/ale'
+"----------------------------------------------
+let g:ale_python_flake8_options = '--max-line-length=100'
+let g:ale_python_pylint_options = '--max-line-length=100 --no-docstring-rgx=test'
