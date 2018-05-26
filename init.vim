@@ -37,6 +37,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'bling/vim-airline'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
 
 
 " Language support
