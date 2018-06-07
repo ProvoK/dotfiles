@@ -1,3 +1,4 @@
+
 - name: Install vim with apt
-  apt: name=vim state=latest
+  apt: name=neovim state=latest
   become_method: sudo
