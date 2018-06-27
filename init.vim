@@ -48,6 +48,7 @@ Plug 'fatih/vim-go'                 " Golang support
 Plug 'sebdah/vim-delve'             " Golang debugger
 Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins', 'for': 'python' } " Python autocomplete
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }  " Python goto etc
+Plug 'tmhedberg/SimpylFold'         " Python folding
 
 
 " Colorschemes
@@ -211,6 +212,15 @@ let g:ale_python_pylint_options = '--max-line-length=100 --no-docstring-rgx=test
 " Plugin: 'sheerun/vim-polyglot'
 "----------------------------------------------
 let g:polyglot_disabled = ['md', 'markdown']
+
+"----------------------------------------------
+" Plugin: 'tmhedberg/SimpylFold'
+"----------------------------------------------
+let g:SimpylFold_docstring_preview	= 0
+let g:SimpylFold_fold_docstring		= 1
+let b:SimpylFold_fold_docstring		= 1
+let g:SimpylFold_fold_import		= 0
+let b:SimpylFold_fold_import		= 0
 
 "----------------------------------------------
 " Plugin: 'Shougo/neosnippet'
