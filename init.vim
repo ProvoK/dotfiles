@@ -105,6 +105,11 @@ endif
 " Allow vim to set a custom font or color for a word
 syntax enable
 
+" Common indentation settings
+set noexpandtab
+set shiftwidth=4
+set tabstop=4
+
 noremap <leader>t :NERDTreeToggle<CR>
 
 " Golang
