@@ -207,6 +207,10 @@ nnoremap <c-p> :FZF<cr>
 "----------------------------------------------
 let g:ale_python_flake8_options = '--max-line-length=100'
 let g:ale_python_pylint_options = '--max-line-length=100 --no-docstring-rgx=test'
+let g:ale_linters = {
+\    'javascript': ['eslint'],
+\    'python': ['flake8']
+\}
 
 "----------------------------------------------
 " Plugin: 'sheerun/vim-polyglot'
