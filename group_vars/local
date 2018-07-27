@@ -10,7 +10,6 @@ full_name: Vittorio Camisa
 git_user: Provok
 # Github username
 git_email: vittorio.camisa@gmail.com
-git_signing_key:
 
 pyenv_global_versions:
   - 3.6.5

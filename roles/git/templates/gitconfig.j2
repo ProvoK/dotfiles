@@ -3,8 +3,6 @@
 [user]
         name = {{ full_name }}
         email = {{ git_email }}
-{% if git_signing_key %}
-        signingkey = {{ git_signing_key }}
 {% endif %}
 {% if ansible_os_family == 'Darwin' %}
 [credential]
