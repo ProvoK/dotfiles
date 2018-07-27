@@ -3,7 +3,6 @@
 [user]
         name = {{ full_name }}
         email = {{ git_email }}
-{% endif %}
 {% if ansible_os_family == 'Darwin' %}
 [credential]
         helper = osxkeychain
@@ -76,7 +75,3 @@
         followTags = true
 [github]
         user = {{ git_user }}
-{% if git_signing_key %}
-[commit]
-        gpgsign = true
-{% endif %}
