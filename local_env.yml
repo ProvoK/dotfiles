@@ -6,10 +6,9 @@
 - name: Set up local development environment
   hosts: local
   roles:
-    - git
+    - {role: git, tags: ['git']}
     - {role: package_manager, tags: ['bootstrap']}
     - {role: zsh, tags: ['bootstrap']}
     - neovim
-    - python
-    - fzf
-    - docker
+    - {role: python, tags: ['python']}
+    - {role: fzf, tags: ['fzf']}
