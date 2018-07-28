@@ -1,8 +1,10 @@
 
 - name: Update apt cache
+  become: yes
   apt: update_cache=yes
   when: package_update
 
 - name: Upgrade apt packages
+  become: yes
   apt: upgrade=yes
   when: package_upgrade
