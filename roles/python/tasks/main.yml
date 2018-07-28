@@ -3,5 +3,10 @@
 - import_tasks: mac.yml
   when: ansible_os_family == "Darwin"
 
-# Install python versions with pyenv
-# TODO
+# Install python versions
+
+- name: Install python 3.6
+  command: pyenv install 3.6.5
+
+- name: Install python 3.7
+  command: pyenv install 3.7.0b3
