@@ -1,0 +1,2 @@
+- name: Install ag
+  homebrew: name=the_silver_searcher state=latest
