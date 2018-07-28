@@ -1,5 +1,3 @@
-# NOTE: if this is false, you'll need to run :PluginInstall in vim to
-# install all plugins
 nvim_install_plugins: yes
 nvim_clean_plugins: yes
 nvim_update_plugins: no
