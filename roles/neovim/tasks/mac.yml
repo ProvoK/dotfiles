@@ -1,7 +1,4 @@
-# NOTE: The with-override-system-vim option ensures that you have an up-to-date terminal vim
-- name: Install Mac Vim
-  homebrew: name=macvim state=present install_options=with-python3,with-lua,with-luajit,with-override-system-vim
-  when: vim_install_macvim
+- name: Install Mac Neovim
+  homebrew: name=neovim state=present
+  when: nvim_install_mac
 
-- name: Install exuberant-ctags (needed for TagBar plugin)
-  homebrew: name=ctags-exuberant state=present
