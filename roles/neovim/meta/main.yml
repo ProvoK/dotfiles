@@ -1,3 +1,4 @@
 dependencies:
-  - { role: python }
-  - { role: ag }
+  - {role: python}
+  - {role: ag}
+  - {role: fzf, tags: ['fzf']}

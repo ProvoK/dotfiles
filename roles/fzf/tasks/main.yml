@@ -1,3 +1,7 @@
 - name: Install fzf with Homebrew
   homebrew: name=fzf state=latest
   when: ansible_os_family == "Darwin"
+
+- name: Install fzf with git
+  command: git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+  when: ansible_os_family == "Debian"
