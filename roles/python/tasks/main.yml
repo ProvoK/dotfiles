@@ -2,6 +2,8 @@
 # Pyenv Installation
 - import_tasks: mac.yml
   when: ansible_os_family == "Darwin"
+- import_tasks: debian.yml
+  when: ansible_os_family == "Debian"
 
 # Install python versions
 
