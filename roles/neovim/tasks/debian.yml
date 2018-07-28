@@ -1,3 +1,11 @@
+- name: Add neovim ppa
+  apt_repository:
+    repo: 'ppa:neovim-ppa/stable'
+    codename: trusty
+    update_cache: yes
+  become_method: sudo
+
+
 - name: Install vim with apt
   apt: name=neovim state=latest
   become_method: sudo
