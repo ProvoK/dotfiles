@@ -15,6 +15,7 @@
     - libncursesw5-dev
     - xz-utils
     - tk-dev
+  become_method: sudo
 
 - name: Install pyenv from source
   command: curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
