@@ -6,21 +6,21 @@
 
 
 # Configuration
-- name: Check if vimrc exists
-  stat: path="{{dotfiles_user_home}}/.vimrc"
+- name: Check if init.vim exists
+  stat: path="{{nvim_home}}/.init.vim"
   register: vimrc_stat
   failed_when: False
 
-- name: Backup vimrc
-  command: mv ~/.vimrc ~/.vimrc.bak
+- name: Backup init.vim
+  command: mv ~/.init.vim ~/.init.vim.bak
   args:
-    creates: "{{dotfiles_user_home}}/.vimrc.bak"
+    creates: "{{nvim_home}}/.init.vim.bak"
   when: vimrc_stat.stat.exists
 
-- name: Symlink vimrc
+- name: Symlink init.vim
   file:
-    src: "{{ dotfiles_home }}/roles/vim/files/vimrc"
-    dest: "{{dotfiles_user_home}}/.vimrc"
+    src: "{{ dotfiles_home }}/roles/neovim/files/init.vim"
+    dest: "{{nvim_home}}/.init.vim"
     state: link
 
 - name: Clean plugins

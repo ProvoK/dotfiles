@@ -1,6 +1,7 @@
 nvim_install_plugins: yes
 nvim_clean_plugins: yes
 nvim_update_plugins: no
+nvim_home: "{{dotfiles_user_home}}/.config/nvim"
 
 # Only used on Mac machines. Ignored on other platforms
 nvim_install_mac: yes
