@@ -1,4 +1,4 @@
 - name: Install ag command
-  apt: name=silversearcher-ag state-installed
+  apt: name=silversearcher-ag state=installed
   become_method: sudo
 
