@@ -8,24 +8,33 @@
 # Required venvs with neovim plugins
 
 - name: create neovim2 venv
-  command: >
+  shell: >
     pyenv virtualenv 2.7.15 neovim2 &&
     pyenv local neovim2 &&
     pip2 install neovim &&
     pyenv local system
+  args:
+    creates: "{{ '~/.pyenv/versions/neovim2' | expanduser }}"
 
 - name: create neovim3 venv
-  command: >
+  shell: >
     pyenv virtualenv 3.6.5 neovim3 &&
     pyenv local neovim3 &&
     pip3 install neovim &&
     pyenv local system
+  args:
+    creates: "{{ '~/.pyenv/versions/neovim3' | expanduser }}"
 
 # Configuration
 - name: Check if init.vim exists
   stat: path="{{nvim_home}}/.init.vim"
   register: vimrc_stat
   failed_when: False
+
+- name: Create nvim dir
+  command: "mkdir -p {{ nvim_home }}"
+  args:
+    creates: "{{ nvim_home }}"
 
 - name: Backup init.vim
   command: mv ~/.init.vim ~/.init.vim.bak
@@ -36,17 +45,5 @@
 - name: Symlink init.vim
   file:
     src: "{{ dotfiles_home }}/roles/neovim/files/init.vim"
-    dest: "{{nvim_home}}/.init.vim"
+    dest: "{{nvim_home}}/init.vim"
     state: link
-
-- name: Clean plugins
-  command: nvim +PlugClean +qall
-  when: nvim_clean_plugins
-
-- name: Install plugins
-  command: nvim +PlugInstall +qall
-  when: nvim_install_plugins
-
-- name: Update plugins
-  command: nvim +PlugUpdate +qall
-  when: nvim_update_plugins

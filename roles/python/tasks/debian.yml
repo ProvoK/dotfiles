@@ -1,21 +1,41 @@
 - name: Install pyenv package requirements
-  apt: name={{item}} state=installed
-  with_items:
-    - make
-    - build-essential
-    - libssl-dev
-    - zlib1g-dev
-    - libbz2-dev
-    - libreadline-dev
-    - libsqlite3-dev
-    - wget
-    - curl
-    - llvm
-    - libncurses5-dev
-    - libncursesw5-dev
-    - xz-utils
-    - tk-dev
-  become_method: sudo
+  apt:
+    name: [
+        'make',
+        'build-essential',
+        'libssl-dev',
+        'zlib1g-dev',
+        'libbz2-dev',
+        'libffi-dev',
+        'libreadline-dev',
+        'libsqlite3-dev',
+        'wget',
+        'curl',
+        'llvm',
+        'libncurses5-dev',
+        'libncursesw5-dev',
+        'xz-utils',
+        'tk-dev',
+        'python-pip',
+        'python3-pip',
+        'python3-setuptools'
+    ]
+    state: present
+  become: true
 
 - name: Install pyenv from source
-  command: curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+  shell: curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+  args:
+    warn: false
+    creates: "{{ '~/.pyenv/' | expanduser }}"
+
+- name: Add symlink to /usr/bin
+  file:
+    src: "{{ '~/.pyenv/bin/pyenv' | expanduser }}"
+    dest: /usr/bin/pyenv
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    state: link
+    mode: "o+x"
+  become: true
+
