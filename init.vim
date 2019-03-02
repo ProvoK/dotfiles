@@ -41,6 +41,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Language support
 Plug 'lifepillar/pgsql.vim'         " PostgreSQL syntax highlighting
@@ -49,7 +50,11 @@ Plug 'sebdah/vim-delve'             " Golang debugger
 Plug 'zchee/deoplete-jedi', { 'do': ':UpdateRemotePlugins', 'for': 'python' } " Python autocomplete
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }  " Python goto etc
 Plug 'tmhedberg/SimpylFold'         " Python folding
+Plug 'iamcco/markdown-preview.vim'  " Markdown live preview in browser
 
+
+" Testing
+Plug 'floobits/floobits-neovim', { 'do': ':UpdateRemotePlugins' }
 
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
@@ -61,6 +66,7 @@ call plug#end()
 " -------------------------------------------------------------------------
 
 set shell=/bin/bash
+set encoding=UTF-8
 
 let g:python3_host_prog = $HOME . '/.pyenv/versions/3.6.5/envs/neovim3/bin/python'
 let g:python_host_prog = $HOME . '/.pyenv/versions/2.7.15/envs/neovim2/bin/python'
@@ -112,6 +118,9 @@ set tabstop=4
 
 noremap <leader>t :NERDTreeToggle<CR>
 
+" Javascript
+autocmd FileType javascript set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+
 " Golang
 
 au FileType go set noexpandtab
@@ -122,9 +131,15 @@ au FileType go set tabstop=4
 au FileType go nmap <leader>gt :GoDeclsDir<cr>
 au FileType go nmap <leader>gd <Plug>(go-def)
 
-let g:deoplete#enable_at_startup = 1
+
+" Yaml
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+
 
 " Disable deoplete when in multi cursor mode
+let g:deoplete#enable_at_startup = 1
 function! Multiple_cursors_before()
     let b:deoplete_disable_auto_complete = 1
 endfunction
@@ -203,6 +218,16 @@ nnoremap <leader>q :close<cr>
 let g:ctrlp_map = ''
 
 "----------------------------------------------
+" Plugin: 'scrooloose/nerdtree'
+"----------------------------------------------
+" Note: We are not using CtrlP much in this configuration. But vim-go depend on
+" it to run GoDecls(Dir).
+
+" Disable the CtrlP mapping, since we want to use FZF instead for <c-p>.
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeIgnore = ['\.pyc$', '^__pycache__$', 'egg-info$']
+
+"----------------------------------------------
 " Plugin: 'junegunn/fzf.vim'
 "----------------------------------------------
 nnoremap <c-p> :FZF<cr>
@@ -238,6 +263,7 @@ let b:SimpylFold_fold_import		= 0
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
+
 
 " SuperTab like snippets behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
