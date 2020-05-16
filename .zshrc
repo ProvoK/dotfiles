@@ -1,4 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
+ZSH_DISABLE_COMPFIX=true
 
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="spaceship"
@@ -30,3 +31,12 @@ export PATH=$PATH:$HOME/go/bin
 
 source <(kubectl completion zsh)
 alias kb=kubectl
+alias dc=docker
+alias dcc=docker-compose
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
+
+PATH="$PATH:$GOPATH"
+export GOPRIVATE="github.com/draios/shared-go"
