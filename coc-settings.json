@@ -1,0 +1,32 @@
+{
+	"languageserver": {
+		"golang": {
+			"command": "gopls",
+			"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+			"filetypes": ["go"],
+			"initializationOptions": {
+				"usePlaceholders": true
+			}
+		},
+		"elmLS": {
+			"command": "elm-language-server",
+			"filetypes": ["elm"],
+			"rootPatterns": ["elm.json"],
+			"initializationOptions": {
+				"elmAnalyseTrigger": "change"
+			}
+		},
+        "bash" :{
+			"command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"]
+        }
+	},
+	"coc.preferences.formatOnSaveFiletypes": [
+		"go",
+		".go",
+		"elm",
+		".elm"
+	],
+	"codeLens.enable": true
+}

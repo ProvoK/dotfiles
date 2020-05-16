@@ -6,7 +6,7 @@ SPACESHIP_PROMPT_ORDER=(
   user
   host
   dir
-  kubecontext
+  # kubecontext
   git
   char
 )
