@@ -4,7 +4,7 @@ set -euo pipefail
 ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
 
 install_packages() {
-	P_PACKAGES="xclip git httpie nodejs npm yarn firefox docker docker-compose neovim zsh discord unzip protobuf powerline-font"
+	P_PACKAGES="xclip git httpie nodejs npm yarn firefox docker docker-compose neovim zsh discord unzip protobuf powerline-font the_silver_searcher"
 	echo "Installing pacman packages: [${P_PACKAGES}]"
 	sudo pacman -Sy $P_PACKAGES
 
