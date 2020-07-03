@@ -26,8 +26,7 @@ fd() {
 }
 
 export KUBE_EDITOR=nvim
-export PATH=$PATH:/usr/local/bin:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:/usr/local/bin:/usr/local/go/bin:$HOME/.npm/bin:$HOME/go/bin
 
 source <(kubectl completion zsh)
 alias kb=kubectl
@@ -40,3 +39,4 @@ prompt spaceship
 
 PATH="$PATH:$GOPATH"
 export GOPRIVATE="github.com/draios/shared-go"
+export GO111MODULE="on"
